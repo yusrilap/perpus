@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.templates.default');
+    return view('welcome');
 });
 
-Route::get('/user', function () {
-    return view('admin.user.index');
-});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
