@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\HomeController;
 
-Route::get('/admin', function () {
-    return 'admin page';
-})->name('dashboard');
+Route::get('/', [HomeController::class, 'index'])->name('dashboard');
